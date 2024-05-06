@@ -13,26 +13,17 @@
             </layoutData>
         </SearchField>
         <Label id="_IDGenLabel12" text="{i18n>Matnr}"/>
-        <Text id="_IDGenText1" text="{viewModel>/FormInfo/EvMaktx}">
+        <Text id="_IDGenText1" text="{viewModel>/FormInfo/EvMatnr}">
             <layoutData>
                 <l:GridData id="_IDGenGridData12" span="XL4 L4 M4 S6"/>
             </layoutData>
         </Text>
           <Label id="_IDGenLabel2" text="{i18n>MatnrDesc}"/>
-           <Text xmlns="sap.m" id="_IDGenText23" text="{viewModel>/FormInfo/EvUzunTanim}">
+           <Text xmlns="sap.m" id="_IDGenText23" text="{viewModel>/FormInfo/EvMaktx}">
             <layoutData>
                 <l:GridData id="_IDGenGridData133" span="XL4 L4 M4 S6"/>
             </layoutData>
         </Text>
-
-        
-
-        <!-- <Label id="_IDGenLabel4" text="{i18n>Charg}"/>
-			<Text id="_IDGenInput1" text="{viewModel>/Charg}" >
-				<layoutData>
-					<l:GridData id="_IDGenGridData6" span="XL4 L4 M4 S6"/>
-				</layoutData>
-			</Text> -->
     <f:content>
 
     </f:content>

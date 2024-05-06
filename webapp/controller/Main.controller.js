@@ -235,6 +235,7 @@ sap.ui.define([
             this.getView().byId("idBarcode").setEnabled(false);
             this.getView().byId("idBarcode").setValue("");
             oViewModel.setProperty("/Print", false);
+            oViewModel.setProperty("/FormInfo", "");
 
             this.getModel("viewModel").setProperty("/FormInfo/Address", sLgpla);
             let fnSuccess = (oData) => {

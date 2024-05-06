@@ -1,0 +1,119 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<Table
+		mode="SingleSelectLeft"
+		id="idDetailTable"
+		width="auto"
+	
+			items="{
+			path: 'objectView>/list',
+			sorter: {
+				path: 'Lgtyp'
+			}
+		}"
+		class="sapUiResponsiveMargin"
+		sticky="ColumnHeaders"
+	>
+		<infoToolbar>
+			<Toolbar id="_IDGenToolbar1">
+				<Text
+					id="_IDGenText8"
+					text="{viewModel>/FormInfo/EvMatnr}"
+				/>
+			</Toolbar>
+		</infoToolbar>
+		<headerToolbar>
+			<OverflowToolbar id="_IDGenOverflowToolbar123">
+				<Button
+					id="_IDGenButton41"
+					text="{i18n>getPrint}"
+					tooltip="Group"
+					icon="sap-icon://print"
+					press="onPressPrint"
+				/>
+				<ToolbarSpacer id="_IDGenToolbarSpacer1134"/>
+				<SearchField
+					id="_IDGenSearchField1"
+					liveChange="onSearch"
+					width="50%"
+				/>
+				<Button
+					id="_IDGenButton2"
+					tooltip="Sort"
+					icon="sap-icon://sort"
+					press="handleSortButtonPressed"
+				/>
+				<Button
+					id="_IDGenButton5"
+					tooltip="Group"
+					icon="sap-icon://group-2"
+					press="handleGroupButtonPressed"
+				/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				id="_IDGenColumn3"
+				minScreenWidth="Tablet"
+				demandPopin="true"
+			>
+				<Text
+					id="_IDGenText5"
+					text="{i18n>Lgpla}"
+				/>
+			</Column>
+			<Column id="_IDGenColumn4">
+				<Text
+					id="_IDGenText6"
+					text="{i18n>Charg}"
+				/>
+			</Column>
+			<Column
+				id="_IDGenColumn5"
+				hAlign="End"
+			>
+				<Text
+					id="_IDGenText7"
+					text="{i18n>Quan}"
+				/>
+			</Column>
+			<!--<Column id="_IDGenColumn6" minScreenWidth="Tablet" demandPopin="true">
+						<Text id="_IDGenText8" text="{i18n>StoctType}"/>
+					</Column>-->
+		</columns>
+		<items>
+			<ColumnListItem id="_IDGenColumnListItem1">
+				<cells>
+					<ObjectIdentifier
+						id="_IDGenObjectIdentifier1"
+						title="{objectView>Lgtyp}"
+						text="{objectView>Lgpla}"
+					/>
+					<Text
+						class="chargText"
+						id="_IDGenObjectNumber31"
+						text="{objectView>Charg}"
+					/>
+					<ObjectNumber
+						id="_IDGenObjectNumber431"
+						number="{
+							path: 'objectView>Quan',
+							type: 'sap.ui.model.type.Float',
+							formatOptions: {
+								minFractionDigits: 2,
+								maxFractionDigits: 2
+							}
+						}"
+						unit="{objectView>Unit}"
+						state="{
+							path: 'objectView>StokTuru',
+							formatter: '.formatter.changeColorOfStockType'
+						}"
+					/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

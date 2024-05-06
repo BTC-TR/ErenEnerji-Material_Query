@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<ViewSettingsDialog
+		id="_IDGenViewSettingsDialog1"
+		confirm="handleSortDialogConfirm"
+	>
+		<sortItems>
+			<ViewSettingsItem
+				id="_IDGenViewSettingsItem2"
+				text="Depo Adresi"
+				key="Lgtyp"
+			/>
+			<ViewSettingsItem
+				id="_IDGenViewSettingsItem3"
+				text="Parti"
+				key="Charg"
+			/>
+			<ViewSettingsItem
+				id="_IDGenViewSettingsItem4"
+				text="Miktar"
+				key="Quan"
+			/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

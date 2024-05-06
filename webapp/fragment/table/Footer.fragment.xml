@@ -1,0 +1,14 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+	<OverflowToolbar id="_IDGenOverflowToolbar13" >
+		<Button
+			id="_IDGenButton3"
+			text="{i18n>btnBack}"
+			tooltip="{i18n>btnBack}"
+			type="Back"
+			press="onPressClear"
+		/>
+	</OverflowToolbar>
+</c:FragmentDefinition>

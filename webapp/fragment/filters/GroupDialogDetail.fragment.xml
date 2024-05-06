@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="_IDGenViewSettingsDialog2"
+		confirm=".handleGroupDialogConfirm"
+		reset=".resetGroupDialog">
+		<groupItems>
+			<ViewSettingsItem id="_IDGenViewSettingsItem5" text="Depo Adresi" key="Lgpla" selected="true" />
+				<ViewSettingsItem id="_IDGenViewSettingsItem6" text="Parti" key="Charg" />
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

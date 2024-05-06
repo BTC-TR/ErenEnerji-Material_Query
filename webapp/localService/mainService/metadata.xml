@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEWM_MATERIAL_QUERY_SRV" xml:lang="tr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="LgplaQuery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvLgnum"/>
+                    <PropertyRef Name="IvLgpla"/>
+                </Key>
+                <Property Name="IvLgnum" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvLgpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Depo adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ForMessageReturnLg" Relationship="ZEWM_MATERIAL_QUERY_SRV.ForMessageReturnLg" FromRole="FromRole_ForMessageReturnLg" ToRole="ToRole_ForMessageReturnLg"/>
+                <NavigationProperty Name="ForLgplaTable" Relationship="ZEWM_MATERIAL_QUERY_SRV.ForLgplaTable" FromRole="FromRole_ForLgplaTable" ToRole="ToRole_ForLgplaTable"/>
+            </EntityType>
+            <EntityType Name="Print" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvAdet"/>
+                    <PropertyRef Name="IvCharg"/>
+                    <PropertyRef Name="IvDest"/>
+                    <PropertyRef Name="IvMatnr"/>
+                    <PropertyRef Name="IvMiktar"/>
+                </Key>
+                <Property Name="IvAdet" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvDest" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Çıktı aygıtı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMiktar" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZPrintSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Padest"/>
+                    <PropertyRef Name="Lname"/>
+                </Key>
+                <Property Name="Patype" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Aygıt tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pastandort" Type="Edm.String" Nullable="false" MaxLength="64" sap:unicode="false" sap:label="Yer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Padest" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Çıktı aygıtı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Çıktı aygıtı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kname" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Kısa adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pamsg" Type="Edm.String" Nullable="false" MaxLength="64" sap:unicode="false" sap:label="Yer/durum" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="BarcodeTable" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Werks"/>
+                    <PropertyRef Name="Lgort"/>
+                    <PropertyRef Name="Lgobe"/>
+                </Key>
+                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Üretim yeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgort" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo yeri" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgobe" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgtyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgpla" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Depo adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quan" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Temel ölçü brm." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="StokTuru" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 karakter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="MessageReturn" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Type"/>
+                    <PropertyRef Name="Message"/>
+                </Key>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="BarcodeQuery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvCharg"/>
+                    <PropertyRef Name="IvMatnr"/>
+                </Key>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvMaktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvUzunTanim" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Malzeme Uzun Metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ForMessageReturn" Relationship="ZEWM_MATERIAL_QUERY_SRV.ForMessageReturn" FromRole="FromRole_ForMessageReturn" ToRole="ToRole_ForMessageReturn"/>
+                <NavigationProperty Name="ForBarcodeTable" Relationship="ZEWM_MATERIAL_QUERY_SRV.ForBarcodeTable" FromRole="FromRole_ForBarcodeTable" ToRole="ToRole_ForBarcodeTable"/>
+            </EntityType>
+            <EntityType Name="LgplaTable" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Lgnum"/>
+                    <PropertyRef Name="Lgtyp"/>
+                </Key>
+                <Property Name="Lgnum" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgtyp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Depo tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lgpla" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Depo adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matid" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Ürün" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Cat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Stok türü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StockDoccat" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StokTuru" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 karakter" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StockDocno" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Stk.ref.belgesi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StockItmno" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Mşt.sprş.kalemi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Sahip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OwnerRole" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Muhatap rolü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Entitled" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Klnm.ytkl." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EntitledRole" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Muhatap rolü" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quan" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unicode="false" sap:label="Kullanılab.mkt." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Tml.ölçü birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Altme" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Alternatif ÖB" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Vfdat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Son kullanım tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Wdatu" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="0" sap:unicode="false" sap:label="MG tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Maktx" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Tanım" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="LgplaQuerySet" Relationship="ZEWM_MATERIAL_QUERY_SRV.ForLgplaTable" FromRole="ToRole_ForLgplaTable" ToRole="FromRole_ForLgplaTable"/>
+            </EntityType>
+            <EntityType Name="GetSticker" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IvAdet"/>
+                    <PropertyRef Name="IvCharg"/>
+                    <PropertyRef Name="IvDest"/>
+                    <PropertyRef Name="IvMatnr"/>
+                    <PropertyRef Name="IvMiktar"/>
+                </Key>
+                <Property Name="IvAdet" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="INT1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvCharg" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Parti" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvDest" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Çıktı aygıtı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMatnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Malzeme" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IvMiktar" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Miktar" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="İleti tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="İleti metni" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="ForLgplaTable" sap:content-version="1">
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.LgplaQuery" Multiplicity="1" Role="FromRole_ForLgplaTable"/>
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.LgplaTable" Multiplicity="*" Role="ToRole_ForLgplaTable"/>
+            </Association>
+            <Association Name="ForMessageReturnLg" sap:content-version="1">
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.LgplaQuery" Multiplicity="1" Role="FromRole_ForMessageReturnLg"/>
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.MessageReturn" Multiplicity="1" Role="ToRole_ForMessageReturnLg"/>
+            </Association>
+            <Association Name="ForBarcodeTable" sap:content-version="1">
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.BarcodeQuery" Multiplicity="1" Role="FromRole_ForBarcodeTable"/>
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.BarcodeTable" Multiplicity="*" Role="ToRole_ForBarcodeTable"/>
+            </Association>
+            <Association Name="ForMessageReturn" sap:content-version="1">
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.BarcodeQuery" Multiplicity="1" Role="FromRole_ForMessageReturn"/>
+                <End Type="ZEWM_MATERIAL_QUERY_SRV.MessageReturn" Multiplicity="1" Role="ToRole_ForMessageReturn"/>
+            </Association>
+            <EntityContainer Name="ZEWM_MATERIAL_QUERY_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="LgplaQuerySet" EntityType="ZEWM_MATERIAL_QUERY_SRV.LgplaQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PrintSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.Print" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ZPrintSHSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.ZPrintSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BarcodeTableSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.BarcodeTable" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="MessageReturnSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.MessageReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BarcodeQuerySet" EntityType="ZEWM_MATERIAL_QUERY_SRV.BarcodeQuery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="LgplaTableSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.LgplaTable" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GetStickerSet" EntityType="ZEWM_MATERIAL_QUERY_SRV.GetSticker" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="ForLgplaTableSet" Association="ZEWM_MATERIAL_QUERY_SRV.ForLgplaTable" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="LgplaQuerySet" Role="FromRole_ForLgplaTable"/>
+                    <End EntitySet="LgplaTableSet" Role="ToRole_ForLgplaTable"/>
+                </AssociationSet>
+                <AssociationSet Name="ForMessageReturnLgSet" Association="ZEWM_MATERIAL_QUERY_SRV.ForMessageReturnLg" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="LgplaQuerySet" Role="FromRole_ForMessageReturnLg"/>
+                    <End EntitySet="MessageReturnSet" Role="ToRole_ForMessageReturnLg"/>
+                </AssociationSet>
+                <AssociationSet Name="ForMessageReturnSet" Association="ZEWM_MATERIAL_QUERY_SRV.ForMessageReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BarcodeQuerySet" Role="FromRole_ForMessageReturn"/>
+                    <End EntitySet="MessageReturnSet" Role="ToRole_ForMessageReturn"/>
+                </AssociationSet>
+                <AssociationSet Name="ForBarcodeTableSet" Association="ZEWM_MATERIAL_QUERY_SRV.ForBarcodeTable" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BarcodeQuerySet" Role="FromRole_ForBarcodeTable"/>
+                    <End EntitySet="BarcodeTableSet" Role="ToRole_ForBarcodeTable"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://vherjds4ap01.sap.erenenerji.com.tr:44300/sap/opu/odata/sap/ZEWM_MATERIAL_QUERY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vherjds4ap01.sap.erenenerji.com.tr:44300/sap/opu/odata/sap/ZEWM_MATERIAL_QUERY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+>
+	<Dialog title="{i18n>SetPrinters}">
+		<l:Grid
+			id="_IDGenGrid1"
+			defaultSpan="XL12 L12 M12 S12"
+		>
+			<f:SimpleForm
+				id="SimpleFormDisplay354"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				labelSpanL="3"
+				labelSpanM="3"
+				emptySpanL="4"
+				emptySpanM="4"
+				columnsL="2"
+				columnsM="2"
+			>
+				<Label
+					width="auto"
+					id="_IDGenLabel35"
+					text="{i18n>Total}"
+				/>
+				<Input
+					width="auto"
+					id="_IDGenInput36"
+					value="{viewModel>/Total}"
+					submit="onChangeTotal"
+				/>
+				<Label
+					width="auto"
+					id="_IDGenLabel352321"
+					text="{i18n>InputQuan}"
+				/>
+				<Input
+					width="auto"
+					id="_IDGenInput321116"
+					value="{
+						path: 'viewModel>/InputQuan',
+						type: 'sap.ui.model.type.Float',
+						formatOptions: {
+							minFractionDigits: 2,
+							maxFractionDigits: 2
+						}
+					}"
+					description="{viewModel>/InputMeins}"
+				/>
+				<Label
+					width="auto"
+					id="_IDGenLabel38"
+					text="{i18n>Printers}"
+				/>
+				<ComboBox
+					width="auto"
+					selectedKey="{viewModel>/PrinterKey}"
+					items="{
+						path: '/ZPrintSHSet',
+						sorter: {
+							path: 'Pastandort'
+						}
+					}"
+					showSecondaryValues="true"
+				>
+					<core:Item
+						key="{Padest}"
+						text="{Pastandort}"
+					/>
+				</ComboBox>
+			</f:SimpleForm>
+		</l:Grid>
+		<buttons>
+			<Button
+				text="{i18n>close}"
+				press="onClosePrinters"
+				type="Reject"
+			/>
+			<Button
+				enabled="{=${viewModel>/Total} &amp;&amp; ${viewModel>/PrinterKey} &amp;&amp; ${viewModel>/InputQuan} ? true : false}"
+			     icon="sap-icon://save"
+				press="onPrintProcess"
+				type="Accept"
+			/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

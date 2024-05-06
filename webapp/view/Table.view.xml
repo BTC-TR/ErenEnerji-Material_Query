@@ -1,0 +1,40 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    controllerName="com.eren.materialquery.controller.Table"
+>
+    <ObjectPageLayout
+        id="_IDGenObjectPageLayout1"
+        showHeaderContent="false"
+        showFooter="true"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle
+                id="_IDGenObjectPageDynamicHeaderTitle1"
+            >
+                <heading>
+                    <core:Fragment
+                        type="XML"
+                        fragmentName="com.eren.materialquery.fragment.table.Header"
+                    />
+                </heading>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <sections>
+            <ObjectPageSection
+                id="_IDGenObjectPageSection1"
+                showTitle="false"
+            >
+                <subSections>
+                    <ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+                        <core:Fragment
+                            type="XML"
+                            fragmentName="com.eren.materialquery.fragment.table.Content"
+                        />
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

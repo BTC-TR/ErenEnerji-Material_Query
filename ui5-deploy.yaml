@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.eren.materialquery
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: ErenEnerji
+          url: http://192.168.212.33:8000
+        app:
+          name: ZEWM_MATE_QUERY
+          description: Material Query
+          package: ZFIORI_EWM
+          transport: DS4K900288
+        exclude:
+          - /test/

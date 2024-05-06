@@ -15,7 +15,7 @@
 		<sections>
 			<ObjectPageSection id="_IDGenObjectPageSection1" showTitle="false">
 				<subSections>
-					<ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection12">
 						<core:Fragment type="XML" fragmentName="com.eren.materialquery.fragment.main.Content"/>
 					</ObjectPageSubSection>
 				</subSections>

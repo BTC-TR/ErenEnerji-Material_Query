@@ -116,6 +116,7 @@ sap.ui.define([
                 fnFinally = () => {
                     sap.ui.core.BusyIndicator.hide();
                     this.getView().byId("idDetailTable").removeSelections();
+                    oViewModel.refresh(true);
                 };
             this._readBarcode(sCharg, sMatnr).then(fnSuccess).catch(fnError).finally(fnFinally);
 
@@ -451,7 +452,7 @@ sap.ui.define([
                     "Lgtyp": groupedByLgort[obj1][0].Lgtyp,
                     "Quan": 0,
                     "Unit": groupedByLgort[obj1][0].Unit,
-                    "StockType": "Tahditsiz",
+                    "StokTuru": groupedByLgort[obj1][0].StokTuru,
                     "Table": [],
                     "Werks": groupedByLgort[obj1][0].Werks
                 },

@@ -43,8 +43,19 @@
         </headerToolbar>
         <columns>
             <Column
+                id="_IDGenColumn1345"
+                width="10em"
+                visible="{=${viewModel>/LgplaSearch} ? false : true}"
+            >
+                <Text
+                    id="_IDGenText3345"
+                    text="{i18n>Werks}"
+                />
+            </Column>
+            <Column
                 id="_IDGenColumn1"
                 visible="{=${viewModel>/LgplaSearch} ? false : true}"
+                hAlign="Left"
             >
                 <Text
                     id="_IDGenText3"
@@ -96,7 +107,6 @@
             >
                 <Text text="{i18n>Owner}" />
             </Column>
-
             <Column
                 id="_IDGenColumn5"
                 hAlign="End"
@@ -115,16 +125,21 @@
             >
                 <cells>
                     <Text
+                        id="_IDGenText935"
+                        text="{viewModel>Werks}"
+                        visible="{=${viewModel>/LgplaSearch} ? false : true}"
+                    />
+                    <Text
                         visible="{=${viewModel>/LgplaSearch} ? false : true}"
                         id="_IDGenObjectNumber11"
                         text="{
-							parts: [{
-								path: 'viewModel>Lgort'
-							}, {
-								path: 'viewModel>Lgobe'
-							}],
-							formatter: '.formatter.setWareHouse'
-						}"
+                            parts: [{
+                                path: 'viewModel>Lgort'
+                            }, {
+                                path: 'viewModel>Lgobe'
+                            }],
+                            formatter: '.formatter.setWareHouse'
+                        }"
                     />
                     <Text
                         id="_IDGenText9"
@@ -148,7 +163,6 @@
                         text="{viewModel>Charg}"
                         class="chargText"
                     />
-
                     <Text
                         id="_IDGenText11"
                         text="{viewModel>Owner}"
@@ -156,18 +170,18 @@
                     <ObjectNumber
                         id="_IDGenObjectNumber4541"
                         number="{
-							path: 'viewModel>Quan',
-							type: 'sap.ui.model.type.Float',
-							formatOptions: {
-								minFractionDigits: 2,
-								maxFractionDigits: 2
-							}
-						}"
+                            path: 'viewModel>Quan',
+                            type: 'sap.ui.model.type.Float',
+                            formatOptions: {
+                                minFractionDigits: 2,
+                                maxFractionDigits: 2
+                            }
+                        }"
                         unit="{viewModel>Unit}"
                         state="{
-							path: 'viewModel>StokTuru',
-							formatter: '.formatter.changeColorOfStockType'
-						}"
+                            path: 'viewModel>StokTuru',
+                            formatter: '.formatter.changeColorOfStockType'
+                        }"
                     />
                 </cells>
             </ColumnListItem>

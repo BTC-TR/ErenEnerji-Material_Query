@@ -33,6 +33,16 @@
 				text="Miktar"
 				key="Quan"
 			/>
+			<ViewSettingsItem
+				id="_IDGenViewSettingsItem51"
+				text="Üretim Yeri"
+				key="Werks"
+			/>
+			<ViewSettingsItem
+				id="_IDGenViewSettingsItem61"
+				text="Kullanım Yetkilisi"
+				key="Owner"
+			/>
 		</sortItems>
 	</ViewSettingsDialog>
 </core:FragmentDefinition>

@@ -42,7 +42,7 @@ sap.ui.define([
                     };
                 }
             };
-
+            
             this.getRouter().getRoute("RouteMain").attachPatternMatched(this._onObjectMatched, this);
 
         },
@@ -51,6 +51,14 @@ sap.ui.define([
 
             this.getView().setModel(new JSONModel(), "wareHouseModel");
 
+            let oViewModel = this.getModel("viewModel"),
+                oTable = this.getView().byId("idDetailTable");
+
+            if (oTable.getSelectedItems() > 0) {
+                oViewModel.setProperty("/Print", true);
+            }else{
+                 oViewModel.setProperty("/Print", false);
+            }
             jQuery.sap.delayedCall(200, this, function () {
                 this.getView().byId("idBarcode").focus();
             });
@@ -66,7 +74,6 @@ sap.ui.define([
                 sMatnr = "";
 
             if (!oBarcode) {
-
                 this._clearScreen();
                 return;
             }
@@ -75,6 +82,7 @@ sap.ui.define([
             }
             sMatnr = iBarcode[0];
 
+            this.getView().byId("idDetailTable").removeSelections();
 
             oViewModel.setProperty("/Charg", sCharg);
             oViewModel.setProperty("/Matnr", sMatnr);
@@ -107,6 +115,7 @@ sap.ui.define([
                 },
                 fnFinally = () => {
                     sap.ui.core.BusyIndicator.hide();
+                    this.getView().byId("idDetailTable").removeSelections();
                 };
             this._readBarcode(sCharg, sMatnr).then(fnSuccess).catch(fnError).finally(fnFinally);
 
@@ -179,12 +188,18 @@ sap.ui.define([
 
         onLgplaCheck: async function (oEvent) {
 
-            let oLgpla = oEvent.getSource().getValue();
+            let oLgpla = oEvent.getSource().getValue(),
+                oViewModel = this.getModel("viewModel");
 
             if (!oLgpla) {
                 this._clearScreen();
                 return;
             }
+
+            oViewModel.setProperty("/Table", []);
+            this.getView().byId("idDetailTable").removeSelections();
+            oViewModel.setProperty("/Material", false);
+            
             let sEntity = "/AddressControl",
                 oModel = this.getView().getModel("common_service"),
                 sMethod = "GET",
@@ -197,6 +212,7 @@ sap.ui.define([
                 .then((oData) => {
                     if (oData.Type === "E") {
                         MessageBox.error(oData.Message);
+                        oViewModel.setProperty("/Table", []);
                     }
                     else {
                         this._onChangeAddress();
@@ -289,7 +305,14 @@ sap.ui.define([
         onPressList: function (oEvent) {
 
             let oTable = this.getView().byId("idDetailTable"),
-                aSelectedContexts = oTable.getSelectedContexts();
+                oViewModel = this.getModel("viewModel"),
+                aSelectedContexts = oTable.getSelectedContexts(),
+                aSelectedObject = aSelectedContexts[0].getObject();
+
+            if (aSelectedObject.Lgort !== aSelectedObject.Werks) {
+                oViewModel.setProperty("/Print", true);
+                return;
+            }
 
             oTable.removeSelections();
 
@@ -329,7 +352,6 @@ sap.ui.define([
                 oTable = this.byId("idDetailTable");
 
             if (oTable.getSelectedItem()) {
-
 
                 let oMeins = oTable.getSelectedItem().getBindingContext("viewModel").getObject().Unit,
                     oQuan = oTable.getSelectedItem().getBindingContext("viewModel").getObject().Quan;
@@ -403,7 +425,9 @@ sap.ui.define([
                 },
                 Table: [],
                 Charg: "",
-                Material: false
+                Material: false,
+                Print: false,
+                Lgnum: "ER01"
             });
         },
 
@@ -427,7 +451,8 @@ sap.ui.define([
                     "Quan": 0,
                     "Unit": groupedByLgort[obj1][0].Unit,
                     "StockType": "Tahditsiz",
-                    "Table": []
+                    "Table": [],
+                    "Werks": groupedByLgort[obj1][0].Werks
                 },
                     toplam = 0;
 
@@ -460,6 +485,11 @@ sap.ui.define([
             return pDialog;
         },
 
+        onLgplaSearchSearchFieldLiveChange:function(oEvent){
+            let oViewModel = this.getModel("viewModel");
+            oViewModel.setProperty("/Table", []);
+            this.getView().byId("idBarcode").setValue("");
+        },
 
         handleSortButtonPressed: function () {
             this.getViewSettingsDialog("com.eren.materialquery.fragment.filters.SortDialog")
@@ -529,7 +559,7 @@ sap.ui.define([
                 },
                     sPath = oModel.createKey("/GetStickerSet", {
                         IvAdet: oViewModel.getProperty("/Total"),
-                        IvCharg: oEntry.Charg,
+                        IvCharg: oEntry.Charg !== undefined ? oEntry.Charg : "",
                         IvDest: oViewModel.getProperty("/PrinterKey"),
                         IvMatnr: (oAddress) ? aSelectedContexts.getObject().Matnr : oViewModel.getData().FormInfo.EvMatnr,
                         IvMiktar: oViewModel.getProperty("/InputQuan"),

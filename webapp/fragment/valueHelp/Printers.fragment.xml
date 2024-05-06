@@ -67,9 +67,10 @@
 					}"
 					showSecondaryValues="true"
 				>
-					<core:Item
+					<core:ListItem id="_IDGenListItem1"
 						key="{Padest}"
-						text="{Pastandort}"
+						text="{Padest}"
+						additionalText="{Pastandort}"
 					/>
 				</ComboBox>
 			</f:SimpleForm>

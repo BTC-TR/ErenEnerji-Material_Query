@@ -10,8 +10,13 @@
 					value="{ path: 'viewModel>/InputQuan', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 } }"
 					description="{viewModel>/InputMeins}"/>
 				<Label width="auto" id="_IDGenLabel3218" text="{i18n>Printers}"/>
-				<ComboBox width="auto" selectedKey="{viewModel>/PrinterKey}" items="{ path: '/ZPrintSHSet', sorter: { path: 'Pastandort' } }">
-					<core:Item key="{Padest}" text="{Pastandort}"/>
+				<ComboBox width="auto" selectedKey="{viewModel>/PrinterKey}" items="{ path: '/ZPrintSHSet', sorter: { path: 'Pastandort' } }"
+				showSecondaryValues="true">
+						<core:ListItem
+						key="{Padest}"
+						text="{Padest}"
+						additionalText="{Pastandort}"
+					/>
 				</ComboBox>
 			</f:SimpleForm>
 		</l:Grid>

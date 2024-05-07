@@ -54,11 +54,11 @@ sap.ui.define([
             let oViewModel = this.getModel("viewModel"),
                 oTable = this.getView().byId("idDetailTable");
 
-            if (oTable.getSelectedItems() > 0) {
-                oViewModel.setProperty("/Print", true);
-            }else{
-                 oViewModel.setProperty("/Print", false);
-            }
+            // if (oTable.getSelectedItems() > 0) {
+            //     oViewModel.setProperty("/Print", true);
+            // }else{
+            //      oViewModel.setProperty("/Print", false);
+            // }
             jQuery.sap.delayedCall(200, this, function () {
                 this.getView().byId("idBarcode").focus();
             });
@@ -82,7 +82,7 @@ sap.ui.define([
             }
             sMatnr = iBarcode[0];
 
-            this.getView().byId("idDetailTable").removeSelections();
+            //this.getView().byId("idDetailTable").removeSelections();
 
             oViewModel.setProperty("/Charg", sCharg);
             oViewModel.setProperty("/Matnr", sMatnr);
@@ -115,7 +115,7 @@ sap.ui.define([
                 },
                 fnFinally = () => {
                     sap.ui.core.BusyIndicator.hide();
-                    this.getView().byId("idDetailTable").removeSelections();
+                    //this.getView().byId("idDetailTable").removeSelections();
                     oViewModel.refresh(true);
                 };
             this._readBarcode(sCharg, sMatnr).then(fnSuccess).catch(fnError).finally(fnFinally);
@@ -198,7 +198,7 @@ sap.ui.define([
             }
 
             oViewModel.setProperty("/Table", []);
-            this.getView().byId("idDetailTable").removeSelections();
+            //this.getView().byId("idDetailTable").removeSelections();
             oViewModel.setProperty("/Material", false);
             
             let sEntity = "/AddressControl",
@@ -232,7 +232,7 @@ sap.ui.define([
 
 
 
-            this.getView().byId("_IDGenColumn1").setVisible(false);
+            //this.getView().byId("_IDGenColumn1").setVisible(false);
             this.getView().byId("idBarcode").setEnabled(false);
             this.getView().byId("idBarcode").setValue("");
             oViewModel.setProperty("/Print", false);
@@ -311,10 +311,10 @@ sap.ui.define([
                 aSelectedContexts = oTable.getSelectedContexts(),
                 aSelectedObject = aSelectedContexts[0].getObject();
 
-            if (aSelectedObject.Lgort !== aSelectedObject.Werks) {
-                oViewModel.setProperty("/Print", true);
-                return;
-            }
+            // if (aSelectedObject.Lgort !== aSelectedObject.Werks) {
+            //     oViewModel.setProperty("/Print", true);
+            //     return;
+            // }
 
             oTable.removeSelections();
 
@@ -452,7 +452,7 @@ sap.ui.define([
                     "Lgtyp": groupedByLgort[obj1][0].Lgtyp,
                     "Quan": 0,
                     "Unit": groupedByLgort[obj1][0].Unit,
-                    "StokTuru": groupedByLgort[obj1][0].StokTuru,
+                    //"StokTuru": groupedByLgort[obj1][0].StokTuru,
                     "Table": [],
                     "Werks": groupedByLgort[obj1][0].Werks
                 },

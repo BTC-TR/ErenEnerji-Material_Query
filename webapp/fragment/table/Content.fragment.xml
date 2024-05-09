@@ -6,8 +6,7 @@
 		mode="SingleSelectLeft"
 		id="idDetailTable"
 		width="auto"
-	
-			items="{
+		items="{
 			path: 'objectView>/list',
 			sorter: {
 				path: 'Lgtyp'
@@ -33,7 +32,7 @@
 					icon="sap-icon://print"
 					press="onPressPrint"
 				/>
-				<ToolbarSpacer id="_IDGenToolbarSpacer1134"/>
+				<ToolbarSpacer id="_IDGenToolbarSpacer1134" />
 				<SearchField
 					id="_IDGenSearchField1"
 					liveChange="onSearch"
@@ -56,15 +55,18 @@
 		<columns>
 			<Column
 				id="_IDGenColumn3"
-				minScreenWidth="Tablet"
-				demandPopin="true"
+				hAlign="Left"
 			>
 				<Text
 					id="_IDGenText5"
 					text="{i18n>Lgpla}"
 				/>
 			</Column>
-			<Column id="_IDGenColumn4">
+			<Column
+				id="_IDGenColumn4"
+				minScreenWidth="Tablet"
+				demandPopin="true"
+			>
 				<Text
 					id="_IDGenText6"
 					text="{i18n>Charg}"

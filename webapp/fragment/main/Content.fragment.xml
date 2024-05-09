@@ -1,185 +1,51 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Table
-        id="idDetailTable"
-        width="auto"
-        items="{viewModel>/Table}"
-        class="sapUiResponsiveMargin"
-        sticky="ColumnHeaders"
-        mode="{=${viewModel>/Material} ? 'SingleSelectMaster' : 'SingleSelectLeft'}"
-        itemPress="onPressList"
-    >
+    <Table id="idDetailTable" width="auto" items="{viewModel>/Table}" class="sapUiResponsiveMargin" sticky="ColumnHeaders" mode="{=${viewModel>/Material} ? 'SingleSelectMaster' : 'SingleSelectLeft'}" itemPress="onPressList">
         <headerToolbar>
             <OverflowToolbar id="_IDGenOverflowToolbar123">
-                <Button
-                    id="_IDGenButton4"
-                    tooltip="Group"
-                    text="{i18n>getPrint}"
-                    icon="sap-icon://print"
-                    press="onPressPrint"
-                    enabled="{viewModel>/Print}"
-                />
-                <ToolbarSpacer id="_IDGenToolbarSpacer123" />
-                <SearchField
-                    id="_IDGenSearchField1"
-                    liveChange="onSearch"
-                    width="50%"
-                />
-                <Button
-                    id="_IDGenButton1"
-                    tooltip="Sort"
-                    icon="sap-icon://sort"
-                    press="handleSortButtonPressed"
-                />
-                <Button
-                    id="_IDGenButton3"
-                    tooltip="Group"
-                    icon="sap-icon://group-2"
-                    press="handleGroupButtonPressed"
-                />
+                <Button id="_IDGenButton4" tooltip="Group" text="{i18n>getPrint}" icon="sap-icon://print" press="onPressPrint" enabled="{viewModel>/Print}"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacer123"/>
+                <SearchField id="_IDGenSearchField1" liveChange="onSearch" width="50%"/>
+                <Button id="_IDGenButton1" tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+                <Button id="_IDGenButton3" tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
             </OverflowToolbar>
         </headerToolbar>
         <columns>
-            <Column
-                id="_IDGenColumn1345"
-                width="10em"
-                visible="{=${viewModel>/LgplaSearch} ? false : true}"
-            >
-                <Text
-                    id="_IDGenText3345"
-                    text="{i18n>Werks}"
-                />
+            <Column hAlign="Left" visible="{=${viewModel>/LgplaSearch} ? false : true}">
+                <Text id="_IDGenText3345" text="{i18n>Werks}"/>
             </Column>
-            <Column
-                id="_IDGenColumn1"
-                visible="{=${viewModel>/LgplaSearch} ? false : true}"
-                hAlign="Left"
-            >
-                <Text
-                    id="_IDGenText3"
-                    text="{i18n>Lgort}"
-                />
+            <Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true" visible="{=${viewModel>/LgplaSearch} ? false : true}">
+                <Text id="_IDGenText3" text="{i18n>Lgort}"/>
             </Column>
-            <Column
-                visible="{=${viewModel>/LgplaSearch} ? false : true}"
-                id="_IDGenColumn3"
-                minScreenWidth="Tablet"
-                demandPopin="true"
-            >
-                <Text
-                    id="_IDGenText5"
-                    text="{i18n>Lgpla}"
-                />
+            <Column visible="{=${viewModel>/LgplaSearch} ? false : true}" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                <Text id="_IDGenText5" text="{i18n>Lgpla}"/>
             </Column>
-            <Column
-                id="_IDGenColumn33"
-                visible="{=${viewModel>/LgplaSearch} ? true : false}"
-            >
-                <Text
-                    id="_IDGenText54"
-                    text="{i18n>Matnr}"
-                />
+            <Column id="_IDGenColumn33" visible="{=${viewModel>/LgplaSearch} ? true : false}" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                <Text id="_IDGenText54" text="{i18n>Matnr}"/>
             </Column>
-            <Column
-                id="_IDGenColumn3334"
-                visible="{=${viewModel>/LgplaSearch} ? true : false}"
-            >
-                <Text
-                    id="_IDGenText10"
-                    text="{i18n>Maktx}"
-                />
+            <Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true" visible="{=${viewModel>/LgplaSearch} ? true : false}">
+                <Text id="_IDGenText10" text="{i18n>Maktx}" hAlign="Center" minScreenWidth="Tablet" demandPopin="true"/>
             </Column>
-            <Column
-                id="_IDGenColumn4"
-                minScreenWidth="Tablet"
-                demandPopin="true"
-            >
-                <Text
-                    id="_IDGenText6"
-                    text="{i18n>Charg}"
-                />
+            <Column id="_IDGenColumn4" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                <Text id="_IDGenText6" text="{i18n>Charg}"/>
             </Column>
-            <Column
-                id="_IDGenColumn6"
-                visible="{=${viewModel>/LgplaSearch} ? true : false}"
-            >
-                <Text text="{i18n>Owner}" />
+            <Column id="_IDGenColumn6" visible="{=${viewModel>/LgplaSearch} ? true : false}" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>Owner}"/>
             </Column>
-            <Column
-                id="_IDGenColumn5"
-                hAlign="End"
-            >
-                <Text
-                    id="_IDGenText7"
-                    text="{i18n>Quan}"
-                />
+            <Column id="_IDGenColumn5" hAlign="End">
+                <Text id="_IDGenText7" text="{i18n>Quan}"/>
             </Column>
         </columns>
         <items>
-            <ColumnListItem
-                id="_IDGenColumnListItem1"
-                type="{=${viewModel>/Material} ? 'Navigation' : 'Inactive'}"
-                press="onPressList"
-            >
+            <ColumnListItem id="_IDGenColumnListItem1" type="{=${viewModel>/Material} ? 'Navigation' : 'Inactive'}" press="onPressList">
                 <cells>
-                    <Text
-                        id="_IDGenText935"
-                        text="{viewModel>Werks}"
-                        visible="{=${viewModel>/LgplaSearch} ? false : true}"
-                    />
-                    <Text
-                        visible="{=${viewModel>/LgplaSearch} ? false : true}"
-                        id="_IDGenObjectNumber11"
-                        text="{
-                            parts: [{
-                                path: 'viewModel>Lgort'
-                            }, {
-                                path: 'viewModel>Lgobe'
-                            }],
-                            formatter: '.formatter.setWareHouse'
-                        }"
-                    />
-                    <Text
-                        id="_IDGenText9"
-                        text="{viewModel>Lgpla}"
-                        visible="{=${viewModel>/LgplaSearch} ? false : true}"
-                    />
-                    <Text
-                        visible="{=${viewModel>/LgplaSearch} ? true : false}"
-                        id="_IDGenObjectNumber3153"
-                        text="{viewModel>Matnr}"
-                        class="matnrText"
-                    />
-                    <Text
-                        visible="{=${viewModel>/LgplaSearch} ? true : false}"
-                        id="_IDGenObjectNumber313"
-                        text="{viewModel>Maktx}"
-                        class="matnrText"
-                    />
-                    <Text
-                        id="_IDGenObjectNumber31"
-                        text="{viewModel>Charg}"
-                        class="chargText"
-                    />
-                    <Text
-                        id="_IDGenText11"
-                        text="{viewModel>Owner}"
-                    />
-                    <ObjectNumber
-                        id="_IDGenObjectNumber4541"
-                        number="{
-                            path: 'viewModel>Quan',
-                            type: 'sap.ui.model.type.Float',
-                            formatOptions: {
-                                minFractionDigits: 2,
-                                maxFractionDigits: 2
-                            }
-                        }"
-                        unit="{viewModel>Unit}"
-                        state="{
-                            path: 'viewModel>StokTuru',
-                            formatter: '.formatter.changeColorOfStockType'
-                        }"
-                    />
+                    <Text id="_IDGenText935" text="{viewModel>Werks}" visible="{=${viewModel>/LgplaSearch} ? false : true}"/>
+                    <Text visible="{=${viewModel>/LgplaSearch} ? false : true}" id="_IDGenObjectNumber11" text="{                             parts: [{                                 path: 'viewModel>Lgort'                             }, {                                 path: 'viewModel>Lgobe'                             }],                             formatter: '.formatter.setWareHouse'                         }"/>
+                    <Text id="_IDGenText9" text="{viewModel>Lgpla}" visible="{=${viewModel>/LgplaSearch} ? false : true}"/>
+                    <Text visible="{=${viewModel>/LgplaSearch} ? true : false}" id="_IDGenObjectNumber3153" text="{viewModel>Matnr}" class="matnrText"/>
+                    <Text visible="{=${viewModel>/LgplaSearch} ? true : false}" id="_IDGenObjectNumber313" text="{viewModel>Maktx}" class="matnrText"/>
+                    <Text id="_IDGenObjectNumber31" text="{viewModel>Charg}" class="chargText"/>
+                    <Text id="_IDGenText11" text="{viewModel>Owner}"/>
+                    <ObjectNumber id="_IDGenObjectNumber4541" number="{                             path: 'viewModel>Quan',                             type: 'sap.ui.model.type.Float',                             formatOptions: {                                 minFractionDigits: 2,                                 maxFractionDigits: 2                             }                         }" unit="{viewModel>Unit}" state="{                             path: 'viewModel>StokTuru',                             formatter: '.formatter.changeColorOfStockType'                         }"/>
                 </cells>
             </ColumnListItem>
         </items>

@@ -77,7 +77,7 @@ sap.ui.define([
             }
             sMatnr = iBarcode[0];
             
-            if (iBarcode[0].length > 10 && oBarcode.includes("|") === false) {
+            if (iBarcode[0].length >= 10 && oBarcode.includes("|") === false) {
                 oViewModel.setProperty("/Charg", oBarcode.substr(oBarcode.length - 10));
                 sMatnr = "";
                 sCharg = oBarcode.substr(oBarcode.length - 10);

@@ -500,10 +500,7 @@ sap.ui.define([
             let oViewModel = this.getModel("viewModel");
             oViewModel.setProperty("/Table", []);
             this.getView().byId("idBarcode").setValue("");
-
-            if(oEvent.getSource().getValue() === ""){
-                this.getView().byId("idBarcode").setEnabled(true)
-            }
+            this.getView().byId("idBarcode").setEnabled(true)
             
         },
  

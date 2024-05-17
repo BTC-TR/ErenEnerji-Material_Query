@@ -16,9 +16,9 @@
         <Input
             id="idAddress"
             value="{viewModel>/LgplaSearch}"
-            submit="onLgplaCheck"
             valueHelpRequest="handleValueHelpLgpla"
             showValueHelp="true"
+            submit="onLgplaCheck"
             showClearIcon="true"
             placeholder="{i18n>LgplaDescPH}"
             liveChange="onLgplaSearchSearchFieldLiveChange"

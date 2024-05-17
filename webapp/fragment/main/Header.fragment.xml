@@ -1,31 +1,80 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
-    <f:SimpleForm id="_IDGenSimpleForm1" editable="false" layout="ColumnLayout">
-        <Label id="_IDGenLabel112" text="{i18n>LgplaDesc}"/>
-        <SearchField value="{viewModel>/LgplaSearch}" id="idAddress" placeholder="{i18n>LgplaDescPH}" search="onLgplaCheck" maxLength="13" liveChange="onLgplaSearchSearchFieldLiveChange">
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <f:SimpleForm
+        id="_IDGenSimpleForm1"
+        editable="false"
+        layout="ColumnLayout"
+    >
+        <Label
+            id="_IDGenLabel112"
+            text="{i18n>LgplaDesc}"
+        />
+        <Input
+            id="idAddress"
+            value="{viewModel>/LgplaSearch}"
+            submit="onLgplaCheck"
+            valueHelpRequest="handleValueHelpLgpla"
+            showValueHelp="true"
+            showClearIcon="true"
+            placeholder="{i18n>LgplaDescPH}"
+            liveChange="onLgplaSearchSearchFieldLiveChange"
+        >
             <layoutData>
-                <l:GridData id="_IDGenGridData123" span="XL4 L4 M4 S6"/>
+                <l:GridData span="XL4 L4 M4 S6" />
+            </layoutData>
+        </Input>
+        <Label
+            id="_IDGenLabel1"
+            text="{i18n>Barcode}"
+        />
+        <SearchField
+            id="idBarcode"
+            placeholder="{i18n>okutunuz}"
+            search="onChangeBarcode"
+        >
+            <layoutData>
+                <l:GridData
+                    id="_IDGenGridData1"
+                    span="XL4 L4 M4 S6"
+                />
             </layoutData>
         </SearchField>
-        <Label id="_IDGenLabel1" text="{i18n>Barcode}"/>
-        <SearchField id="idBarcode" placeholder="{i18n>okutunuz}" search="onChangeBarcode">
+        <Label
+            id="_IDGenLabel12"
+            text="{i18n>Matnr}"
+        />
+        <Text
+            id="_IDGenText1"
+            text="{viewModel>/FormInfo/EvMatnr}"
+        >
             <layoutData>
-                <l:GridData id="_IDGenGridData1" span="XL4 L4 M4 S6"/>
-            </layoutData>
-        </SearchField>
-        <Label id="_IDGenLabel12" text="{i18n>Matnr}"/>
-        <Text id="_IDGenText1" text="{viewModel>/FormInfo/EvMatnr}">
-            <layoutData>
-                <l:GridData id="_IDGenGridData12" span="XL4 L4 M4 S6"/>
-            </layoutData>
-        </Text>
-          <Label id="_IDGenLabel2" text="{i18n>MatnrDesc}"/>
-           <Text xmlns="sap.m" id="_IDGenText23" text="{viewModel>/FormInfo/EvMaktx}">
-            <layoutData>
-                <l:GridData id="_IDGenGridData133" span="XL4 L4 M4 S6"/>
+                <l:GridData
+                    id="_IDGenGridData12"
+                    span="XL4 L4 M4 S6"
+                />
             </layoutData>
         </Text>
-    <f:content>
-
-    </f:content>
+        <Label
+            id="_IDGenLabel2"
+            text="{i18n>MatnrDesc}"
+        />
+        <Text
+            xmlns="sap.m"
+            id="_IDGenText23"
+            text="{viewModel>/FormInfo/EvMaktx}"
+        >
+            <layoutData>
+                <l:GridData
+                    id="_IDGenGridData133"
+                    span="XL4 L4 M4 S6"
+                />
+            </layoutData>
+        </Text>
+        <f:content>
+        </f:content>
     </f:SimpleForm>
 </core:FragmentDefinition>

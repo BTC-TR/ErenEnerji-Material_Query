@@ -6,7 +6,7 @@
                 <ToolbarSpacer id="_IDGenToolbarSpacer123"/>
                 <SearchField id="_IDGenSearchField1" liveChange="onSearch" width="50%"/>
                 <Button id="_IDGenButton1" tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/>
-                <Button id="_IDGenButton3" tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+                <!-- <Button id="_IDGenButton3" tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/> -->
             </OverflowToolbar>
         </headerToolbar>
         <columns>

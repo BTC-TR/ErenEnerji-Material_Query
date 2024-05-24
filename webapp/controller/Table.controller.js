@@ -22,7 +22,7 @@ sap.ui.define([
         onInit: function () {
             this._mViewSettingsDialogs = {};
 
-
+//
             this.mGroupFunctions = {
 
                 Lgpla: function (oContext) {

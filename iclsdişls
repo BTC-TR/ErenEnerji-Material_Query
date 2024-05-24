@@ -1,0 +1,38 @@
+[33mcommit a9b73ce4589efa160402437b62721360f1b42fbc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: gorkem-aydin <gorkem.aydin@gmx.com>
+Date:   Fri May 24 12:46:06 2024 +0000
+
+    visible group button
+
+[1mdiff --git a/webapp/fragment/main/Content.fragment.xml b/webapp/fragment/main/Content.fragment.xml[m
+[1mindex f2597d7..73f26f3 100644[m
+[1m--- a/webapp/fragment/main/Content.fragment.xml[m
+[1m+++ b/webapp/fragment/main/Content.fragment.xml[m
+[36m@@ -6,7 +6,7 @@[m
+                 <ToolbarSpacer id="_IDGenToolbarSpacer123"/>[m
+                 <SearchField id="_IDGenSearchField1" liveChange="onSearch" width="50%"/>[m
+                 <Button id="_IDGenButton1" tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/>[m
+[31m-                <Button id="_IDGenButton3" tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>[m
+[32m+[m[32m                <!-- <Button id="_IDGenButton3" tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/> -->[m
+             </OverflowToolbar>[m
+         </headerToolbar>[m
+         <columns>[m
+[1mdiff --git a/webapp/fragment/table/Content.fragment.xml b/webapp/fragment/table/Content.fragment.xml[m
+[1mindex 6d97dd5..a748f9e 100644[m
+[1m--- a/webapp/fragment/table/Content.fragment.xml[m
+[1m+++ b/webapp/fragment/table/Content.fragment.xml[m
+[36m@@ -44,12 +44,12 @@[m
+ 					icon="sap-icon://sort"[m
+ 					press="handleSortButtonPressed"[m
+ 				/>[m
+[31m-				<Button[m
+[32m+[m				[32m<!-- <Button[m
+ 					id="_IDGenButton5"[m
+ 					tooltip="Group"[m
+ 					icon="sap-icon://group-2"[m
+ 					press="handleGroupButtonPressed"[m
+[31m-				/>[m
+[32m+[m				[32m/> -->[m
+ 			</OverflowToolbar>[m
+ 		</headerToolbar>[m
+ 		<columns>[m

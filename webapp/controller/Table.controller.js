@@ -269,6 +269,7 @@ sap.ui.define([
                         IvDest: oViewModel.getProperty("/PrinterKey"),
                         IvMatnr: oViewModel.getProperty("/FormInfo/EvMatnr"),
                         IvMiktar: oViewModel.getProperty("/InputQuan"),
+                        IvWerks : oEntry.Werks
                     });
                 sap.ui.core.BusyIndicator.show(0);
                 oModel.read(sPath, oParams);

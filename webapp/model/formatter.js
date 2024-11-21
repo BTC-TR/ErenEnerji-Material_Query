@@ -50,6 +50,22 @@ sap.ui.define([], function () {
 
         },
 
+        formatQuantity: function(quantity,menge) {
+            if (!quantity) return "";
+
+            const unit = menge;
+
+            // Eğer "ADT" veya "PC" ise, yalnızca tam sayı göster
+            if (unit === "ADT" || unit === "PC") {
+                return parseInt(quantity, 10).toLocaleString('tr-TR');
+            }
+            // Diğer durumlarda iki ondalık basamak göster
+            return parseFloat(quantity).toLocaleString('tr-TR', {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3
+            });
+        },
+
 
 
     };

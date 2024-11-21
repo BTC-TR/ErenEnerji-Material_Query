@@ -100,15 +100,10 @@
 					/>
 					<ObjectNumber
 						id="_IDGenObjectNumber431"
-						number="{
-							path: 'objectView>Quan',
-							type: 'sap.ui.model.type.Float',
-							formatOptions: {
-								minFractionDigits: 2,
-								maxFractionDigits: 2
-							}
-						}"
-						unit="{objectView>Unit}"
+						number="{     parts: [ { path: 'objectView>Quan' },
+									     	   { path: 'objectView>Unit' } ],
+									        formatter: '.formatter.formatQuantity' }"
+                        unit = "{objectView>Unit}"
 						state="{
 							path: 'objectView>StokTuru',
 							formatter: '.formatter.changeColorOfStockType'

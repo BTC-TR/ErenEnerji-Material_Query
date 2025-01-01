@@ -81,6 +81,25 @@ sap.ui.define([
 
                 oModel.callFunction(sEntity, mParameters);
             });
+        },
+
+        getPrinters:function(){
+            var oModel = this.getView().getModel();
+            var oViewModel = this.getView().getModel("viewModel");
+        
+            oModel.read("/PrintListSet", {
+                success: function (oData) {
+                    var aPrintList = oData.results; 
+                
+                    var bForceSelection = aPrintList.length === 1;
+                    oViewModel.setProperty("/forceSelection", bForceSelection);
+                    
+                },
+                error: function () {
+                    console.error("PrintListSet yüklenirken hata oluştu.");
+                }
+            });
+
         }
     });
 

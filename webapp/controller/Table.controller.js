@@ -121,6 +121,12 @@ sap.ui.define([
         /* =========================================================== */
 
         _onObjectMatched: function (oEvent) {
+
+        
+            
+            
+        
+
             var oViewModel = new JSONModel({
                 busy: true,
                 delay: 0
@@ -130,7 +136,11 @@ sap.ui.define([
 
             var sObjectId = oEvent.getParameter("arguments").id;
             this._bindView(sObjectId);
+
+            this.getPrinters();
         },
+
+      
 
         _bindView: function (sObjectPath) {
             let oViewModel = this.getModel("viewModel").getData();
@@ -278,7 +288,10 @@ sap.ui.define([
         _clearFragmentData: function () {
             let oModel = this.getModel("viewModel");
             oModel.setProperty("/Total", "");
-            oModel.setProperty("/PrinterKey", "");
+
+            if (!oModel.getProperty("/forceSelection")) {
+                oModel.setProperty("/PrinterKey", "");
+            }
         }
     });
 

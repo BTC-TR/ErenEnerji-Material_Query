@@ -54,7 +54,7 @@
                     selectedKey="{viewModel>/PrinterKey}"
                     items="{ path: '/PrintListSet', sorter: { path: 'Pastandort' } }"
                     showSecondaryValues="true"
-					forceSelection="true"
+                    forceSelection="{viewModel>/forceSelection}"
                 >
                     <core:ListItem
                         key="{Padest}"

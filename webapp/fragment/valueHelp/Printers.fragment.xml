@@ -56,23 +56,24 @@
 					id="_IDGenLabel38"
 					text="{i18n>Printers}"
 				/>
-				<ComboBox
+				<Select
 					width="auto"
 					selectedKey="{viewModel>/PrinterKey}"
 					items="{
-						path: '/ZPrintSHSet',
+						path: '/PrintListSet',
 						sorter: {
 							path: 'Pastandort'
 						}
 					}"
 					showSecondaryValues="true"
+					forceSelection="true"
 				>
 					<core:ListItem id="_IDGenListItem1"
 						key="{Padest}"
 						text="{Padest}"
 						additionalText="{Pastandort}"
 					/>
-				</ComboBox>
+				</Select>
 			</f:SimpleForm>
 		</l:Grid>
 		<buttons>

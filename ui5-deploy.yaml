@@ -16,10 +16,11 @@ builder:
         target:
           destination: ErenEnerji
           url: http://192.168.212.33:8000
+          client: '100'
         app:
           name: ZEWM_MATE_QUERY
           description: Material Query
           package: ZFIORI_EWM
-          transport: DS4K902630
+          transport: DS4K903073
         exclude:
           - /test/

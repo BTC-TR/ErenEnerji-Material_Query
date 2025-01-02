@@ -340,10 +340,12 @@ sap.ui.define([
             let table = this.getView().byId("idDetailTable"),
                 oBinding = table.getBinding("items"),
                 oFilter = [],
-                inputValue = oEvent.getSource().getValue();
+                inputValue = oEvent.getSource().getValue().toUpperCase();
+
             if (inputValue !== "") {
                 oFilter = new Filter([
                     new Filter("Matnr", FilterOperator.Contains, inputValue),
+                    new Filter("Maktx", FilterOperator.Contains, inputValue),
                     new Filter("Lgpla", FilterOperator.Contains, inputValue),
                     new Filter("Lgobe", FilterOperator.Contains, inputValue),
                     new Filter("Lgort", FilterOperator.Contains, inputValue),

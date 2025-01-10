@@ -21,6 +21,6 @@ builder:
           name: ZEWM_MATE_QUERY
           description: Material Query
           package: ZFIORI_EWM
-          transport: DS4K903117
+          transport: DS4K903402
         exclude:
           - /test/

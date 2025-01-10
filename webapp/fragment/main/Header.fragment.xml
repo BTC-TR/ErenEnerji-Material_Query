@@ -83,7 +83,7 @@
         />
 
         <ObjectNumber
-            class="sapUiSmallMarginBottom"
+            class="sapMObjectNumberLarge"
             inverted="true"
             number="{viewModel>/FormInfo/EvBismt}"
             visible="{ path: 'viewModel>/FormInfo/EvBismt',  

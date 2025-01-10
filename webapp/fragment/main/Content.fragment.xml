@@ -172,12 +172,10 @@
                         number="{     parts: [ { path: 'viewModel>Quan' },
 									     	   { path: 'viewModel>Unit' } ],
 									        formatter: '.formatter.formatQuantity' }"
-                        unit = "{viewModel>Unit}"
-                        state = "{ path: 'viewModel>StokTuru',  
+                        unit="{viewModel>Unit}"
+                        state="{ path: 'viewModel>StokTuru',  
                                    formatter: '.formatter.changeColorOfStockType'   }"
                     />
-
-                    
                 </cells>
             </ColumnListItem>
         </items>

@@ -1,4 +1,4 @@
-sap.ui.define([], function () {
+sap.ui.define( function () {
     "use strict";
 
     return {
@@ -66,7 +66,9 @@ sap.ui.define([], function () {
             });
         },
 
-
+        visibleBismt: function(bismt){
+            return !!bismt && bismt.length > 0;
+        }
 
     };
 

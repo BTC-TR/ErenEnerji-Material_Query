@@ -47,6 +47,7 @@
             id="_IDGenLabel12"
             text="{i18n>Matnr}"
         />
+
         <Text
             id="_IDGenText1"
             text="{viewModel>/FormInfo/EvMatnr}"
@@ -74,7 +75,25 @@
                 />
             </layoutData>
         </Text>
-        <f:content>
-        </f:content>
+
+        <Label
+            visible="{ path: 'viewModel>/FormInfo/EvBismt',  
+                                   formatter: '.formatter.visibleBismt'   }"
+            text="{i18n>MatnrBismt}"
+        />
+
+        <ObjectNumber
+            class="sapUiSmallMarginBottom"
+            inverted="true"
+            number="{viewModel>/FormInfo/EvBismt}"
+            visible="{ path: 'viewModel>/FormInfo/EvBismt',  
+                                   formatter: '.formatter.visibleBismt'   }"
+            state="Information"
+        >
+            <layoutData>
+                <l:GridData span="XL4 L4 M4 S6" />
+            </layoutData>
+        </ObjectNumber>
+        <f:content />
     </f:SimpleForm>
 </core:FragmentDefinition>
